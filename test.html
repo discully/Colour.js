@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Colour.js Test Page</title>
+	<style>
+div
+{
+	//display:inline-block;
+	float:left;
+	height:5em;
+	margin:2em;
+	padding:0.3em;
+	width:15em;
+}
+	</style>
+	<script src="Colour.js"></script>
+</head>
+<body>
+	<h1>Colour.js Test Page</h1>
+	<div id="d1" style="background-color:red;"></div>
+	<div id="d2" style="background-color:green;"></div>
+	<div id="d3" style="background-color:blue;"></div>
+	<div id="d4" style="background-color:rgb(40,255,10);"></div>
+	<div id="d5" style="background-color:hsl(100,50%,90%);"></div>
+	<div id="d6" style="background-color:rgba(40,255,10,0.3);"></div>
+	<div id="d7" style="background-color:orange;"></div>
+	<div id="d8" style="background-color:yellow;"></div>
+	<div id="d9" style="background-color:hsla(100,50%,90%,0.9);"></div>
+	<script>
+colour = new Colour();
+list = document.getElementsByTagName("div");
+for(var i = 0; i < list.length; i++){
+	console.log(i);
+	div = list[i];
+	console.log(div);
+	bc = div.style.backgroundColor;
+	console.log(bc);
+	colour.set(bc);
+	console.log(colour);
+	same = colour.compare(bc);
+	div.innerHTML = bc + "<br>" + colour + "<br>" + same;
+}
+	</script>
+</body>
+</html>
